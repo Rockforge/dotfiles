@@ -1,20 +1,19 @@
-# Path to your oh-my-zsh installation.
-export ZSH="/home/chan/.oh-my-zsh"
+source $HOME/antigen.zsh
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
 
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundle git
 
-source $ZSH/oh-my-zsh.sh
+# Syntax highlighting bundle.
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+# Load the theme.
+antigen theme robbyrussell
+
+# Tell Antigen that you're done.
+antigen apply
 
 # User configuration
 export TERM="xterm-256color"
@@ -36,4 +35,3 @@ fi
 if [ -f $HOME/.zshrc_aliases_work ]; then
     source .zshrc_aliases_work
 fi
-
