@@ -1,0 +1,4 @@
+alias lights="xrandr --output DVI-D-0 --brightness 0.5"
+alias config='/usr/bin/git --git-dir=/home/chan/dotfiles/ --work-tree=/home/chan'
+alias zshrc="vim ~/.zshrc"
+alias docker_ps="docker ps --format=\"table {{.ID}}\t{{.Ports}}\t{{.Names}}\""
