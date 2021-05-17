@@ -174,10 +174,7 @@ bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t ima
 bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
 
-# Remove title bars
-# for_window [class="^.*"] border pixel 2
+# Position of windows
+exec_always xrandr --output VGA-0 --left-of DVI-D-0
 
-# i3-gaps
-# gaps outer 8
-# gaps inner 8
 
