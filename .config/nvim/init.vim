@@ -68,12 +68,24 @@ call plug#begin(stdpath('data').'/plugged')
 
 Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
 
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 
+Plug 'mattn/emmet-vim'
+
 call plug#end()
 
+""" Set globals
+let g:deoplete#enable_at_startup = 1
 
+
+""" Custom bindings
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
 
 
