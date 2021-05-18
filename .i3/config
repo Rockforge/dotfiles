@@ -191,3 +191,7 @@ assign [class="Google-chrome"] $ws2
 assign [class="Postman"] $ws4
 assign [class="Slack"] $ws9
 for_window [class="Spotify"] move to workspace $ws10
+
+
+bindsym $mod+b move workspace to output right
+bindsym $mod+c move workspace to output left
