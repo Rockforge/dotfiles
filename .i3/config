@@ -179,4 +179,15 @@ bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection c
 # Position of windows
 exec_always xrandr --output VGA-0 --left-of DVI-D-0
 
+exec --no-startup-id i3-msg 'exec gnome-terminal'
+exec --no-startup-id i3-msg 'exec google-chrome'
+exec --no-startup-id i3-msg 'exec postman'
+exec --no-startup-id i3-msg 'exec slack'
+exec --no-startup-id i3-msg 'exec spotify'
 
+
+assign [class="Gnome-terminal"] $ws1
+assign [class="Google-chrome"] $ws2
+assign [class="Postman"] $ws4
+assign [class="Slack"] $ws9
+for_window [class="Spotify"] move to workspace $ws10
