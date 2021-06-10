@@ -7,8 +7,9 @@ antigen bundle git
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 
-antigen theme robbyrussell
+#antigen theme robbyrussell
 #antigen theme https://github.com/caiogondim/bullet-train-oh-my-zsh-theme bullet-train
+antigen theme jackharrisonsherlock/common
 
 antigen apply
 
