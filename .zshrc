@@ -8,15 +8,16 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 
 antigen theme robbyrussell
+#antigen theme https://github.com/caiogondim/bullet-train-oh-my-zsh-theme bullet-train
 
 antigen apply
 
 # User configuration
 export TERM="xterm-256color"
 
-export EDITOR='vim'
+export EDITOR='nvim'
 
-export VISUAL='vim'
+export VISUAL='nvim'
 
 export XDEBUG_CONFIG="idekey=VSCODE"
 
@@ -31,3 +32,5 @@ fi
 if [ -f $HOME/.zshrc_aliases_work ]; then
     source .zshrc_aliases_work
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
