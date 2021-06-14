@@ -14,6 +14,8 @@ antigen theme jackharrisonsherlock/common
 antigen apply
 
 # User configuration
+export PATH=$HOME/.local/bin:$PATH
+
 export TERM="xterm-256color"
 
 export EDITOR='nvim'
