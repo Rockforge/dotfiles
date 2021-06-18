@@ -28,12 +28,13 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-if [ -f $HOME/.zshrc_aliases ]; then
-    source .zshrc_aliases
+if [ -f $HOME/.aliases ]; then
+    source $HOME/.aliases
 fi
 
-if [ -f $HOME/.zshrc_aliases_work ]; then
-    source .zshrc_aliases_work
+if [ -f $HOME/.aliases_work ]; then
+    source $HOME/.aliases_work
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+

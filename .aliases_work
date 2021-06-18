@@ -1,0 +1,16 @@
+alias mnt-opt="sudo encfs --public /optimy-workspace /home/chan/optimy-workspace"
+
+alias app="cd ~/optimy-workspace/optimyapp"
+
+alias cip="cd ~/optimy-workspace/cip"
+alias cip-front="cd ~/optimy-workspace/cip && cd frontend"
+
+alias dock="cd ~/optimy-workspace/docker-optimyapp"
+
+alias stack-up="(cd ~/optimy-workspace/docker-optimyapp && ./stack up)"
+alias stack-down="(cd ~/optimy-workspace/docker-optimyapp && ./stack down)"
+alias stack-reset="(cd ~/optimy-workspace/docker-optimyapp && ./stack down && ./stack up)"
+
+alias dock-api="docker exec -w /optimy -it 56_ci-api_1 bash"
+alias dock-admin="docker exec -w /optimy -it 56_ci-admin-api_1 bash"
+alias dock-app-back="docker exec -w /optimy -it 56_back_1 bash"
