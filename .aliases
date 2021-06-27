@@ -5,3 +5,4 @@ alias lights="xrandr --output DVI-D-0 --brightness 0.7; xrandr --output VGA-0 --
 alias nvim_config="nvim ~/.config/nvim/init.vim"
 alias python="/usr/bin/python3"
 alias pip="/usr/bin/python3 -m pip"
+alias todo="todo.sh"
