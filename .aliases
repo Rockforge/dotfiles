@@ -1,6 +1,6 @@
 alias zshrc="vim ~/.zshrc"
 alias config='/usr/bin/git --git-dir=/home/chan/dotfiles/ --work-tree=/home/chan'
-alias dock_ps="docker ps --format=\"table {{.ID}}\t{{.Ports}}\t{{.Names}}\""
+alias dock-ps="docker ps --format=\"table {{.ID}}\t{{.Ports}}\t{{.Names}}\""
 alias lights="xrandr --output DVI-D-0 --brightness 0.7; xrandr --output VGA-0 --brightness 0.7"
 alias nvim_config="nvim ~/.config/nvim/init.vim"
 alias python="/usr/bin/python3"
