@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+HOME="/Users/chan-isentia"
+
+if [ ! -d "$HOME/dotfiles" ]
+then
+    echo "dotfiles directory does not exist"
+    exit 1
+fi
+
+cp -p $HOME/.vimrc $HOME/dotfiles
+cp -p $HOME/.zshrc $HOME/dotfiles
+cp -p $HOME/.aliases $HOME/dotfiles
+cp -p $HOME/.gitignore $HOME/dotfiles
+cp -p $HOME/.gitconfig $HOME/dotfiles
+cp -p $HOME/.condarc $HOME/dotfiles
+
+mkdir -p $HOME/dotfiles/.emacs.d \
+    && cp -p $HOME/.emacs.d/init.el $HOME/dotfiles/.emacs.d/init.el
+mkdir -p $HOME/dotfiles/.emacs.d \
+    && cp -p $HOME/.emacs.d/configuration.org $HOME/dotfiles/.emacs.d/configuration.org
+
+mkdir -p $HOME/.config/nvim \
+    && cp -p $HOME/.config/nvim/init.vim $HOME/dotfiles/.config/nvim/init.vim
+
+cp -p $HOME/.i3status.conf $HOME/dotfiles
+cp -pr $HOME/.i3 $HOME/dotfiles
+
+cp -p $HOME/.tmux.conf $HOME/dotfiles
+
+cp -pr $HOME/scripts $HOME/dotfiles
+cp -p $HOME/antigen.zsh $HOME/dotfiles

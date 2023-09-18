@@ -1,0 +1,28 @@
+# CONFIG FILES
+alias zshrc-config="nvim ~/.zshrc"
+alias vim-config="nvim ~/.vimrc"
+alias nvim-config="nvim ~/.config/nvim/init.vim"
+
+# MANAGE DOTFILES USING THIS COMMAND
+alias dots='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+
+# OTHER STUFF
+alias dock-ps="docker ps --format=\"table {{.ID}}\t{{.Ports}}\t{{.Names}}\""
+alias wired-connection="sudo ethtool -s enp4s0 speed 1000 duplex full autoneg off"
+alias lights="xrandr --output DVI-D-0 --brightness 0.7; xrandr --output VGA-0 --brightness 0.7"
+
+alias ctags="/usr/local/bin/ctags"
+
+alias show-path='echo "$PATH" | tr ":" "\n"'
+
+alias pip='python -m pip'
+
+alias ta='tmux attach-session'
+
+alias mbrew='arch -arm64 /opt/homebrew/bin/brew'
+alias ibrew='arch -x86_64 /usr/local/bin/brew'
+
+
+alias ymlfmt='~/go/bin/yamlfmt'
+#alias pyenv86='arch -x86_64 /usr/local/bin/pyenv'
+

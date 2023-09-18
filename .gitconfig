@@ -1,0 +1,12 @@
+[core]
+    editor = nvim
+	excludesFile = ~/.gitignore
+[user]
+	name = chan
+	email = 25656081+Rockforge@users.noreply.github.com
+[diff]
+	tool = vimdiff
+[merge]
+	tool = vimdiff
+[init]
+	defaultBranch = main
