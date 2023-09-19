@@ -354,7 +354,8 @@ I'm evil my fellow dudes
                                  dired-mode
                                  magit-mode
                                  Info-mode
-                                 vterm-mode))
+                                 vterm-mode
+                                 deadgrep-mode))
     ;; Loop through them
     (dolist (i emacs-initial-states)
       (evil-set-initial-state i 'emacs))
@@ -878,6 +879,13 @@ Show me where that *damn* cursor is
 ** es-mode
 #+BEGIN_SRC emacs-lisp
   (use-package es-mode :straight t)
+#+END_SRC
+** deadgrep
+#+BEGIN_SRC emacs-lisp
+  (use-package deadgrep
+    :straight t
+    :config
+    (global-set-key (kbd "<f5>") #'deadgrep))
 #+END_SRC
 * Functions
 Some functions that I found really helpful
