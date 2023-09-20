@@ -16,7 +16,7 @@ The thingies that emacs should be doing from the start
   (setq-default indent-tabs-mode nil)
 
   ;; Fill this column with a color
-  (setq-default fill-column 88)
+  (setq-default fill-column 80)
 
   ;; You know, those things or bar at the side
   ;; that shows those next line thingies
