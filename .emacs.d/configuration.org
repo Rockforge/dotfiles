@@ -412,6 +412,7 @@ I'm evil my fellow dudes
 
       "do" '("dired-other-window" . dired-other-window)
 
+      "rg" '("deadgrep" . deadgrep)
       "j" '("goto-char-2" . avy-goto-char-2)
       "p" '("projectile" . projectile-command-map)
       "s" '("swiper" . swiper)
@@ -586,6 +587,15 @@ Our themes to make our coding experience somewhat better
     :config
     (solaire-global-mode +1))
 #+END_SRC
+** catpuccin-theme
+#+BEGIN_SRC emacs-lisp
+  (use-package catppuccin-theme
+    :straight t
+    :config
+    ;;(setq catppuccin-flavor 'mocha)
+    (setq catppuccin-flavor 'latte)
+    (catppuccin-reload))
+#+END_SRC
 ** doom-theme
 #+BEGIN_SRC emacs-lisp
   (use-package doom-themes
@@ -641,6 +651,7 @@ Our themes to make our coding experience somewhat better
 #+BEGIN_SRC emacs-lisp
   (use-package zenburn-theme
     :straight t
+    :disabled
     :config
     ;; use variable-pitch fonts for some headings and titles
     ;;(setq zenburn-use-variable-pitch t)
@@ -833,8 +844,8 @@ I like to see a rainbow cat down there
   (use-package nyan-mode
     :straight t
     :init
-    (setq nyan-animate-nyancat 1)
-    (setq nyan-wavy-trail 1)
+    ;;(setq nyan-animate-nyancat 1)
+    ;;(setq nyan-wavy-trail 1)
     (nyan-mode 1))
 #+END_SRC
 ** beacon-mode
@@ -884,8 +895,9 @@ Show me where that *damn* cursor is
 #+BEGIN_SRC emacs-lisp
   (use-package deadgrep
     :straight t
-    :config
-    (global-set-key (kbd "<f5>") #'deadgrep))
+    :bind(:map deadgrep-mode-map
+               ("j" . next-line)
+               ("k" . previous-line)))
 #+END_SRC
 * Functions
 Some functions that I found really helpful
