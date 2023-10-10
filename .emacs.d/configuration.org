@@ -593,7 +593,8 @@ Our themes to make our coding experience somewhat better
     :straight t
     :config
     ;;(setq catppuccin-flavor 'mocha)
-    (setq catppuccin-flavor 'latte)
+    ;;(setq catppuccin-flavor 'latte)
+    (setq catppuccin-flavor 'frappe)
     (catppuccin-reload))
 #+END_SRC
 ** doom-theme
