@@ -497,6 +497,17 @@ I'm evil my fellow dudes
 #+BEGIN_SRC emacs-lisp
   (use-package dockerfile-mode :straight t)
 #+END_SRC
+** perspective
+#+BEGIN_SRC emacs-lisp
+  (use-package perspective
+    :straight t
+    :custom
+    (persp-mode-prefix-key (kbd "C-c M-p"))
+    :bind
+    ("C-x C-b" . persp-ivy-switch-buffer)
+    :init
+    (persp-mode))
+#+END_SRC
 * Icons
 Show some icons yo, cause it looks boring tbh
 ** all-the-icons
