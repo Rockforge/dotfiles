@@ -287,7 +287,7 @@ Install use-package to use-package our packages my friend
 
     (defhydra hydra-buffer (:exit t)
       "buffer"
-      ("b" ivy-switch-buffer "switch buffer")
+      ("b" persp-ivy-switch-buffer "switch buffer")
       ("r" revert-buffer "revert buffer")
       ("d" kill-this-buffer "kill this buffer")
       ("m" ibuffer "menu")
@@ -502,7 +502,7 @@ I'm evil my fellow dudes
   (use-package perspective
     :straight t
     :custom
-    (persp-mode-prefix-key (kbd "C-c M-p"))
+    (persp-mode-prefix-key (kbd "M-p"))
     :bind
     ("C-x C-b" . persp-ivy-switch-buffer)
     :init
