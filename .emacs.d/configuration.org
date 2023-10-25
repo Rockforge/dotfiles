@@ -420,7 +420,8 @@ I'm evil my fellow dudes
       "w" '("window" . hydra-window/body)
       "t" '("tags" . hydra-gtags/body)
       "z" '("zoom" . hydra-zoom/body)
-      "d" '("dap" . dap-hydra))
+      "d" '("dap" . dap-hydra)
+      )
     (global-evil-leader-mode))
 #+END_SRC
 *** Fix the issue with org-mode
