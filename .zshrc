@@ -13,12 +13,13 @@ antigen use oh-my-zsh
 
 ### Bundles/Packages
 antigen bundle git
-antigen bundle docker
+#antigen bundle docker
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 
 ### Themes
-antigen theme romkatv/powerlevel10k
+#antigen theme romkatv/powerlevel10k
+antigen theme robbyrussell
 
 # Apply
 antigen apply
