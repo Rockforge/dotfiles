@@ -413,7 +413,8 @@ I'm evil my fellow dudes
       "do" '("dired-other-window" . dired-other-window)
 
       "rg" '("deadgrep" . deadgrep)
-      "j" '("goto-char-2" . avy-goto-char-2)
+      "jj" '("goto-char-2" . avy-goto-char-2)
+      "jg" '("goto-line" . avy-goto-line)
       "p" '("projectile" . projectile-command-map)
       "s" '("swiper" . swiper)
       "b" '("buffer" . hydra-buffer/body)
