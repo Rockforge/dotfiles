@@ -400,6 +400,10 @@ I'm evil my fellow dudes
       "ff" '("find-files" . counsel-find-file)
       "ft" '("file-tree" . treemacs)
 
+      "fcw" '("create workspace" . treemacs-create-workspace)
+      "fsw" '("switch workspace" . treemacs-switch-workspace)
+      "frw" '("remove workspace" . treemacs-remove-workspace)
+
       "vf" '("vimish-fold" . vimish-fold)
       "vv" '("vimish-fold-delete" . vimish-fold-delete)
 
