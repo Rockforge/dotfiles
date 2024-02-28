@@ -1,3 +1,6 @@
+#+TITLE: Chan's configurations
+#+AUTHOR: Christian J.
+#+LANGUAGE: en
 #+STARTUP: indent
 * General Settings
 ** Default behavior
