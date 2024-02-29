@@ -13,7 +13,7 @@
 
 (require 'org)
 
-(org-babel-load-file (concat user-emacs-directory "configuration.org"))
+(org-babel-load-file (concat user-emacs-directory "configuration-new.org"))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

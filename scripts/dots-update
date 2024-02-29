@@ -17,8 +17,12 @@ cp -p $HOME/.condarc $HOME/dotfiles
 
 mkdir -p $HOME/dotfiles/.emacs.d \
     && cp -p $HOME/.emacs.d/init.el $HOME/dotfiles/.emacs.d/init.el
+
 mkdir -p $HOME/dotfiles/.emacs.d \
     && cp -p $HOME/.emacs.d/configuration.org $HOME/dotfiles/.emacs.d/configuration.org
+
+mkdir -p $HOME/dotfiles/.emacs.d \
+    && cp -p $HOME/.emacs.d/configuration-new.org $HOME/dotfiles/.emacs.d/configuration-new.org
 
 mkdir -p $HOME/.config/nvim \
     && cp -p $HOME/.config/nvim/init.vim $HOME/dotfiles/.config/nvim/init.vim
