@@ -200,9 +200,15 @@ The most useful package in this entire configuration
     (evil-define-key 'normal 'global (kbd ",pf") 'project-find-file)
 
     ;; Windows
-    (evil-define-key 'normal 'global (kbd ",x") 'split-window-below)
-    (evil-define-key 'normal 'global (kbd ",v") 'split-window-right)
-    (evil-define-key 'normal 'global (kbd ",o") 'delete-other-windows)
+    (evil-define-key 'normal 'global (kbd ",wa") 'ace-window)
+    (evil-define-key 'normal 'global (kbd ",wx") 'split-window-below)
+    (evil-define-key 'normal 'global (kbd ",wv") 'split-window-right)
+    (evil-define-key 'normal 'global (kbd ",wo") 'delete-other-windows)
+
+    (evil-define-key 'normal 'global (kbd ",wh") 'windmove-left)
+    (evil-define-key 'normal 'global (kbd ",wj") 'windmove-down)
+    (evil-define-key 'normal 'global (kbd ",wk") 'windmove-up)
+    (evil-define-key 'normal 'global (kbd ",wl") 'windmove-right)
 
     ;; Package related
     (evil-define-key 'normal 'global (kbd ",g") 'magit)
@@ -225,10 +231,6 @@ The most useful package in this entire configuration
       (evil-set-initial-state i 'emacs))
 
     (evil-mode 1))
-#+END_SRC
-*** Keybindings
-#+BEGIN_SRC emacs-lisp
-
 #+END_SRC
 *** [[https://github.com/syl20bnr/evil-escape][evil-escape]]
 #+BEGIN_SRC emacs-lisp
@@ -261,7 +263,11 @@ The most useful package in this entire configuration
     :bind
     ("M-o" . ace-window)
     :config
-    (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
+    (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+    (set-face-attribute 'aw-leading-char-face nil
+                        :foreground "salmon"
+                        :weight 'bold
+                        :height 3.0))
 #+END_SRC
 * Programming
 Packages that are useful for programming
@@ -269,7 +275,8 @@ Packages that are useful for programming
 #+BEGIN_SRC emacs-lisp
   (use-package evil-nerd-commenter
     :straight t
-    :after (evil))
+    :after (evil)
+    :init (evilnc-default-hotkeys))
 #+END_SRC
 ** [[https://github.com/Alexander-Miller/treemacs][treemacs]]
 #+BEGIN_SRC emacs-lisp
@@ -286,6 +293,22 @@ Packages that are useful for programming
     :bind(:map deadgrep-mode-map
                ("j" . next-line)
                ("k" . previous-line)))
+#+END_SRC
+** Language related
+*** [[https://github.com/jorgenschaefer/elpy][elpy]]
+#+BEGIN_SRC emacs-lisp
+  (use-package elpy
+    :straight t
+    :init
+    (elpy-enable))
+#+END_SRC
+*** [[https://github.com/yoshiki/yaml-mode][yaml-mode]]
+#+BEGIN_SRC emacs-lisp
+  (use-package yaml-mode :straight t)
+#+END_SRC
+*** [[https://github.com/json-emacs/json-mode][json-mode]]
+#+BEGIN_SRC emacs-lisp
+  (use-package json-mode :straight t)
 #+END_SRC
 * Theming
 ** [[https://github.com/domtronn/all-the-icons.el][all-the-icons]]
