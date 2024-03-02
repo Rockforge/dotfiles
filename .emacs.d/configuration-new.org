@@ -181,6 +181,19 @@ Responsible for showing us org headlines as UTF-8 characters
 #+BEGIN_SRC emacs-lisp
   (use-package magit :straight t)
 #+END_SRC
+** [[https://github.com/abo-abo/hydra][hydra]]
+#+BEGIN_SRC emacs-lisp
+  (use-package hydra
+    :straight t
+    :defer t
+    :config
+    (defhydra hydra-zoom ()
+      "Zoom"
+      ("f" toggle-frame-fullscreen "toggle fullscreen")
+      ("j" text-scale-increase "in")
+      ("k" text-scale-decrease "out")
+      ("q" nil "exit" :exit t)))
+#+END_SRC
 ** [[https://github.com/emacs-evil/evil][evil]]
 The most useful package in this entire configuration
 #+BEGIN_SRC emacs-lisp
@@ -215,6 +228,8 @@ The most useful package in this entire configuration
     (evil-define-key 'normal 'global (kbd ",ft") 'treemacs)
     (evil-define-key 'normal 'global (kbd ",fp") 'treemacs-display-current-project-exclusively)
     (evil-define-key 'normal 'global (kbd ",rg") 'deadgrep)
+
+    (evil-define-key 'normal 'global (kbd ",z") 'hydra-zoom/body)
 
     ;; Set these modes initial states as emacs
     ;; Set our emacs-initial-states
@@ -409,6 +424,7 @@ Some functions that I found really helpful
     ;;       #'command-completion-default-include-p)
 
     ;; Enable recursive minibuffers
+    (minibuffer-depth-indicate-mode)
     (setq enable-recursive-minibuffers t))
 #+END_SRC
 *** marginalia
