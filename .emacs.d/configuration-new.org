@@ -112,7 +112,7 @@ Hooks that are for other thingies
 #+BEGIN_SRC emacs-lisp
   (straight-use-package 'use-package)
 #+END_SRC
-** org-mode
+** [[https://orgmode.org/][org-mode]]
 *** Settings
 #+BEGIN_SRC emacs-lisp
   (setq org-startup-folded t)
@@ -192,7 +192,29 @@ Responsible for showing us org headlines as UTF-8 characters
       ("f" toggle-frame-fullscreen "toggle fullscreen")
       ("j" text-scale-increase "in")
       ("k" text-scale-decrease "out")
-      ("q" nil "exit" :exit t)))
+      ("q" nil "exit" :exit t))
+
+    (defhydra hydra-window (:color red)
+      ("s" shrink-window-horizontally "shrink horizontally" :column "Sizing")
+      ("e" enlarge-window-horizontally "enlarge horizontally")
+      ("b" balance-windows "balance window height")
+      ("m" maximize-window "maximize current window")
+      ("M" minimize-window "minimize current window")
+
+      ("x" split-window-below "split horizontally" :column "Split management")
+      ("v" split-window-right "split vertically")
+      ("d" delete-window "delete current window")
+      ("o" delete-other-windows "delete-other-windows")
+
+
+      ("z" ace-window "ace window" :color blue :column "Navigation")
+      ("h" windmove-left "← window")
+      ("j" windmove-down "↓ window")
+      ("k" windmove-up "↑ window")
+      ("l" windmove-right "→ window")
+      ("r" toggle-window-split "rotate windows") ; Located in utility functions
+      ("q" nil "quit menu" :color blue :column nil))
+    )
 #+END_SRC
 ** [[https://github.com/emacs-evil/evil][evil]]
 The most useful package in this entire configuration
@@ -207,21 +229,11 @@ The most useful package in this entire configuration
     (evil-define-key 'normal 'global (kbd ",ff") 'find-file)
     (evil-define-key 'normal 'global (kbd ",fs") 'save-buffer)
     (evil-define-key 'normal 'global (kbd ",bb") 'consult-buffer)
+    (evil-define-key 'normal 'global (kbd ",br") 'rever-buffer)
 
     ;; Projects
     (evil-define-key 'normal 'global (kbd ",pp") 'project-switch-project)
     (evil-define-key 'normal 'global (kbd ",pf") 'project-find-file)
-
-    ;; Windows
-    (evil-define-key 'normal 'global (kbd ",wa") 'ace-window)
-    (evil-define-key 'normal 'global (kbd ",wx") 'split-window-below)
-    (evil-define-key 'normal 'global (kbd ",wv") 'split-window-right)
-    (evil-define-key 'normal 'global (kbd ",wo") 'delete-other-windows)
-
-    (evil-define-key 'normal 'global (kbd ",wh") 'windmove-left)
-    (evil-define-key 'normal 'global (kbd ",wj") 'windmove-down)
-    (evil-define-key 'normal 'global (kbd ",wk") 'windmove-up)
-    (evil-define-key 'normal 'global (kbd ",wl") 'windmove-right)
 
     ;; Package related
     (evil-define-key 'normal 'global (kbd ",g") 'magit)
@@ -229,7 +241,9 @@ The most useful package in this entire configuration
     (evil-define-key 'normal 'global (kbd ",fp") 'treemacs-display-current-project-exclusively)
     (evil-define-key 'normal 'global (kbd ",rg") 'deadgrep)
 
+    ;; Hydras
     (evil-define-key 'normal 'global (kbd ",z") 'hydra-zoom/body)
+    (evil-define-key 'normal 'global (kbd ",w") 'hydra-window/body)
 
     ;; Set these modes initial states as emacs
     ;; Set our emacs-initial-states
@@ -340,10 +354,18 @@ Packages that are useful for programming
 ** [[https://github.com/catppuccin/emacs][catpuccin]]
 #+BEGIN_SRC emacs-lisp
   (use-package catppuccin-theme
+    :disabled
     :straight t
     :config
     (setq catppuccin-flavor 'frappe)
     (catppuccin-reload))
+#+END_SRC
+** modus
+#+BEGIN_SRC emacs-lisp
+  (use-package modus-themes
+    :straight t
+    :config
+    (load-theme 'modus-vivendi))
 #+END_SRC
 * Others
 ** smerge configuration
