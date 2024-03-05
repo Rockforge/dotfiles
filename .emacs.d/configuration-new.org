@@ -360,12 +360,12 @@ Packages that are useful for programming
     (setq catppuccin-flavor 'frappe)
     (catppuccin-reload))
 #+END_SRC
-** modus
+** [[https://github.com/protesilaos/modus-themes][modus-themes]]
 #+BEGIN_SRC emacs-lisp
   (use-package modus-themes
     :straight t
     :config
-    (load-theme 'modus-vivendi))
+    (load-theme 'modus-vivendi :no-confirm))
 #+END_SRC
 * Others
 ** smerge configuration
