@@ -28,6 +28,7 @@ The thingies that emacs should be doing from the start
   ;; Show all the line numbers
   (global-display-line-numbers-mode 1)
 
+
   ;; Remove those pesky bars
   (scroll-bar-mode -1)
   (tool-bar-mode -1)
@@ -65,10 +66,13 @@ The thingies that emacs should be doing from the start
 ** Fonts
 #+BEGIN_SRC emacs-lisp
   (cond
-   ((find-font (font-spec :name "Fira Code"))
-    (set-frame-font "Fira Code-14"))
-   ((find-font (font-spec :name "DejaVu Sans Mono"))
-    (set-frame-font "DejaVu Sans Mono-14")))
+   ((find-font (font-spec :name "JetBrains Mono"))
+    (set-frame-font "JetBrains Mono-14"))
+   ;; ((find-font (font-spec :name "Fira Code"))
+   ;;  (set-frame-font "Fira Code-14"))
+   ;; ((find-font (font-spec :name "DejaVu Sans Mono"))
+   ;;  (set-frame-font "DejaVu Sans Mono-14"))
+   )
 #+END_SRC
 ** Setup backups
 #+BEGIN_SRC emacs-lisp
@@ -106,6 +110,7 @@ The thingies that emacs should be doing from the start
 Hooks that are for other thingies
 #+BEGIN_SRC emacs-lisp
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
+  (add-hook 'dired-mode-hook 'dired-hide-details-mode)
 #+END_SRC
 * Essentials
 ** [[https://github.com/jwiegley/use-package][use-package]]
@@ -229,7 +234,9 @@ The most useful package in this entire configuration
     (evil-define-key 'normal 'global (kbd ",ff") 'find-file)
     (evil-define-key 'normal 'global (kbd ",fs") 'save-buffer)
     (evil-define-key 'normal 'global (kbd ",bb") 'consult-buffer)
-    (evil-define-key 'normal 'global (kbd ",br") 'rever-buffer)
+    (evil-define-key 'normal 'global (kbd ",br") 'revert-buffer)
+    (evil-define-key 'normal 'global (kbd ",br") 'revert-buffer)
+    (evil-define-key 'normal 'global (kbd ",bl") 'list-bookmarks)
 
     ;; Projects
     (evil-define-key 'normal 'global (kbd ",pp") 'project-switch-project)
@@ -240,6 +247,8 @@ The most useful package in this entire configuration
     (evil-define-key 'normal 'global (kbd ",ft") 'treemacs)
     (evil-define-key 'normal 'global (kbd ",fp") 'treemacs-display-current-project-exclusively)
     (evil-define-key 'normal 'global (kbd ",rg") 'deadgrep)
+
+    (evil-define-key 'normal 'global (kbd ",se") 'eval-last-sexp)
 
     ;; Hydras
     (evil-define-key 'normal 'global (kbd ",z") 'hydra-zoom/body)
@@ -281,7 +290,7 @@ The most useful package in this entire configuration
   (use-package perspective
     :straight t
     :custom
-    (persp-mode-prefix-key (kbd "M-p"))
+    (persp-mode-prefix-key (kbd "C-c M-p"))
     :init
     (persp-mode))
 #+END_SRC
@@ -300,6 +309,13 @@ The most useful package in this entire configuration
 #+END_SRC
 * Programming
 Packages that are useful for programming
+** [[https://github.com/DarthFennec/highlight-indent-guides][highlight-indent-guides]]
+#+BEGIN_SRC emacs-lisp
+  (use-package highlight-indent-guides
+    :straight t
+    :hook
+    (prog-mode . highlight-indent-guides-mode))
+#+END_SRC
 ** [[https://github.com/redguardtoo/evil-nerd-commenter][evil-nerd-commenter]]
 #+BEGIN_SRC emacs-lisp
   (use-package evil-nerd-commenter
@@ -315,6 +331,10 @@ Packages that are useful for programming
     :straight t
     :after (treemacs evil))
 #+END_SRC
+** [[https://github.com/mhayashi1120/Emacs-wgrep][wgrep]]
+#+BEGIN_SRC emacs-lisp
+  (use-package wgrep :straight t)
+#+END_SRC
 ** [[https://github.com/Wilfred/deadgrep][deadgrep]]
 #+BEGIN_SRC emacs-lisp
   (use-package deadgrep
@@ -323,6 +343,18 @@ Packages that are useful for programming
                ("j" . next-line)
                ("k" . previous-line)))
 #+END_SRC
+** [[https://github.com/joaotavora/yasnippet][yasnippet]]
+#+BEGIN_SRC emacs-lisp
+  (use-package yasnippet
+    :straight t
+    :init
+    (yas-global-mode 1))
+#+END_SRC
+*** Snippets
+**** yasnippet-snippets
+#+BEGIN_SRC emacs-lisp
+  (use-package yasnippet-snippets :straight t)
+#+END_SRC
 ** Language related
 *** [[https://github.com/jorgenschaefer/elpy][elpy]]
 #+BEGIN_SRC emacs-lisp
@@ -330,6 +362,10 @@ Packages that are useful for programming
     :straight t
     :init
     (elpy-enable))
+#+END_SRC
+*** [[https://github.com/jrblevin/markdown-mode][markdown-mode]]
+#+BEGIN_SRC emacs-lisp
+  (use-package markdown-mode :straight t)
 #+END_SRC
 *** [[https://github.com/yoshiki/yaml-mode][yaml-mode]]
 #+BEGIN_SRC emacs-lisp
@@ -395,7 +431,7 @@ Some functions that I found really helpful
            (current-buffer)))
 #+END_SRC
 * Completion frameworks
-** vertico and friends
+** [[https://github.com/minad/vertico][vertico]]
 #+BEGIN_SRC emacs-lisp
   ;; Enable vertico
   (use-package vertico
@@ -560,13 +596,15 @@ Some functions that I found really helpful
     ;; :preview-key on a per-command basis using the `consult-customize' macro.
     (consult-customize
      consult-theme :preview-key '(:debounce 0.2 any)
-     consult-ripgrep consult-git-grep consult-grep
+     ;;consult-ripgrep consult-git-grep consult-grep
      consult-bookmark consult-recent-file consult-xref
      consult--source-bookmark consult--source-file-register
      consult--source-recent-file consult--source-project-recent-file
+     consult--source-buffer :hidden t :default nil
      ;; :preview-key "M-."
      :preview-key '(:debounce 0.4 any))
 
+    (add-to-list 'consult-buffer-sources persp-consult-source)
     ;; Optionally configure the narrowing key.
     ;; Both < and C-+ work reasonably well.
     (setq consult-narrow-key "<") ;; "C-+"
