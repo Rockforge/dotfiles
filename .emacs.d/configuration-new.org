@@ -141,7 +141,7 @@ Org agenda related settings
 
   ;; Set these files as the agenda files
   (setq org-agenda-files
-        (list (concat org-directory "/working.org")))
+        (list (concat org-directory "/agenda.org")))
 
   ;; Set TODO keywords
   (setq org-todo-keywords
@@ -152,9 +152,9 @@ Org agenda related settings
 
   ;; Set capture templates
   (setq org-capture-templates
-        `(("t" "Todo" entry (file+headline ,(concat org-directory "/working.org") "Tasks")
+        `(("t" "Todo" entry (file+headline ,(concat org-directory "/agenda.org") "Important Stuff TODO")
            "* TODO %?\n  %i")
-          ("n" "Note" entry (file+headline ,(concat org-directory "/working.org") "Notes")
+          ("n" "Note" entry (file+headline ,(concat org-directory "/notes.org") "Notes")
            "* %?\nDate and Time: %U\n  %i\n")))
 #+END_SRC
 *** [[https://github.com/sabof/org-bullets][org-bullets]]
@@ -263,7 +263,8 @@ The most useful package in this entire configuration
                                  magit-mode
                                  Info-mode
                                  vterm-mode
-                                 deadgrep-mode))
+                                 deadgrep-mode
+                                 dashboard-mode))
     ;; Loop through them
     (dolist (i emacs-initial-states)
       (evil-set-initial-state i 'emacs))
@@ -322,7 +323,7 @@ Packages that are useful for programming
   (use-package evil-nerd-commenter
     :straight t
     :after (evil)
-    :init (evilnc-default-hotkeys))
+    :init (evilnc-default-hotkeys nil t))
 #+END_SRC
 ** [[https://github.com/Alexander-Miller/treemacs][treemacs]]
 #+BEGIN_SRC emacs-lisp
@@ -405,6 +406,14 @@ Packages that are useful for programming
     (load-theme 'modus-vivendi :no-confirm))
 #+END_SRC
 * Others
+** emacs-dashboard
+#+BEGIN_SRC emacs-lisp
+  ;; use-package with package.el:
+  (use-package dashboard
+    :straight t
+    :config
+    (dashboard-setup-startup-hook))
+#+END_SRC
 ** smerge configuration
 #+BEGIN_SRC emacs-lisp
   (defun smerge-try-smerge ()
