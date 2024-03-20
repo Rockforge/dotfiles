@@ -27,6 +27,8 @@ The thingies that emacs should be doing from the start
   (set-fringe-style (quote (12 . 8)))
   ;; Show all the line numbers
   (global-display-line-numbers-mode 1)
+  ;; Show fill column
+  (global-display-fill-column-indicator-mode 1)
 
 
   ;; Remove those pesky bars
@@ -103,7 +105,7 @@ The thingies that emacs should be doing from the start
 #+END_SRC
 *** prog-mode
 #+BEGIN_SRC emacs-lisp
-  (add-hook 'prog-mode-hook 'display-fill-column-indicator-mode)
+  ;;(add-hook 'prog-mode-hook 'display-fill-column-indicator-mode)
   (add-hook 'prog-mode-hook 'electric-pair-mode)
 #+END_SRC
 *** Others
@@ -141,7 +143,8 @@ Org agenda related settings
 
   ;; Set these files as the agenda files
   (setq org-agenda-files
-        (list (concat org-directory "/agenda.org")))
+        (list (concat org-directory "/work.org")
+              (concat org-directory "/note.org")))
 
   ;; Set TODO keywords
   (setq org-todo-keywords
@@ -152,10 +155,10 @@ Org agenda related settings
 
   ;; Set capture templates
   (setq org-capture-templates
-        `(("t" "Todo" entry (file+headline ,(concat org-directory "/agenda.org") "Important Stuff TODO")
+        `(("t" "Todo" entry (file+headline ,(concat org-directory "/work.org") "Work stuff")
            "* TODO %?\n  %i")
-          ("n" "Note" entry (file+headline ,(concat org-directory "/notes.org") "Notes")
-           "* %?\nDate and Time: %U\n  %i\n")))
+          ("n" "Note" entry (file+headline ,(concat org-directory "/note.org") "Note stuff")
+           "* %?\n/Date and Time:/ %U\n  %i\n")))
 #+END_SRC
 *** [[https://github.com/sabof/org-bullets][org-bullets]]
 Responsible for showing us org headlines as UTF-8 characters
@@ -245,7 +248,7 @@ The most useful package in this entire configuration
     ;; Package related
     (evil-define-key 'normal 'global (kbd ",g") 'magit)
     (evil-define-key 'normal 'global (kbd ",ft") 'treemacs)
-    (evil-define-key 'normal 'global (kbd ",fp") 'treemacs-display-current-project-exclusively)
+    (evil-define-key 'normal 'global (kbd ",fp") 'treemacs-add-and-display-current-project-exclusively)
     (evil-define-key 'normal 'global (kbd ",rg") 'deadgrep)
 
     (evil-define-key 'normal 'global (kbd ",se") 'eval-last-sexp)
@@ -302,6 +305,7 @@ The most useful package in this entire configuration
     :bind
     ("M-o" . ace-window)
     :config
+    (setq aw-ignore-on nil)
     (setq aw-dispatch-always t)
     (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
     (set-face-attribute 'aw-leading-char-face nil
