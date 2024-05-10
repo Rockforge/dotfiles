@@ -303,7 +303,7 @@ The most useful package in this entire configuration
   (use-package perspective
     :straight t
     :custom
-    (persp-mode-prefix-key (kbd "C-c M-p"))
+    (persp-mode-prefix-key (kbd "M-p"))
     :init
     (persp-mode))
 #+END_SRC
@@ -349,6 +349,10 @@ Packages that are useful for programming
     :straight t
     :config
     (setq treemacs-position 'right))
+
+  (use-package treemacs-perspective
+    :straight t
+    :config (treemacs-set-scope-type 'Perspectives))
 
   (use-package treemacs-evil
     :straight t
@@ -458,7 +462,7 @@ Packages that are useful for programming
   (use-package modus-themes
     :straight t
     :config
-    (load-theme 'modus-vivendi :no-confirm))
+    (load-theme 'modus-operandi :no-confirm))
 #+END_SRC
 * Others
 ** emacs-dashboard
