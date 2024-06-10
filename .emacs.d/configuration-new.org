@@ -346,9 +346,7 @@ Packages that are useful for programming
 ** [[https://github.com/Alexander-Miller/treemacs][treemacs]]
 #+BEGIN_SRC emacs-lisp
   (use-package treemacs
-    :straight t
-    :config
-    (setq treemacs-position 'right))
+    :straight t)
 
   (use-package treemacs-perspective
     :straight t
@@ -462,7 +460,7 @@ Packages that are useful for programming
   (use-package modus-themes
     :straight t
     :config
-    (load-theme 'modus-operandi :no-confirm))
+    (load-theme 'modus-vivendi :no-confirm))
 #+END_SRC
 * Others
 ** emacs-dashboard
