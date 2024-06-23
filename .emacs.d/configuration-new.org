@@ -386,7 +386,9 @@ Packages that are useful for programming
   (use-package elpy
     :straight t
     :init
-    (elpy-enable))
+    (elpy-enable)
+    :config
+    (setq elpy-formatter 'black))
 #+END_SRC
 *** [[https://github.com/jrblevin/markdown-mode][markdown-mode]]
 #+BEGIN_SRC emacs-lisp
