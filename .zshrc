@@ -24,17 +24,15 @@ antigen theme robbyrussell
 antigen apply
 
 ### Exports
-export TERM="xterm-256color"
-
 # Editors
 export EDITOR="nvim"
 export VISUAL="nvim"
 
 # Set where .nvm is found
 export NVM_DIR="$HOME/.nvm"
+
 # Setup Pipenv to where .virtualenvs should be placed
 #export WORKON_HOME="$HOME/.virtualenvs"
-
 # Setup our python bin. Absolutely no reason to set this anymore... I think
 #export PYTHON_BIN="$HOME/Library/Python/3.8/bin"
 #export PATH="$PYTHON_BIN:$PATH"
