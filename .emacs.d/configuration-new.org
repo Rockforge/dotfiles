@@ -327,7 +327,9 @@ Packages that are useful for programming
 ** eglot
 #+BEGIN_SRC emacs-lisp
   (use-package eglot
-    :straight t)
+    :straight t
+    :config
+    (add-hook 'python-mode-hook 'eglot-ensure))
 #+END_SRC
 ** [[https://github.com/DarthFennec/highlight-indent-guides][highlight-indent-guides]]
 #+BEGIN_SRC emacs-lisp
@@ -593,6 +595,15 @@ Some functions that I found really helpful
     ;; Enable indentation+completion using the TAB key.
     ;; `completion-at-point' is often bound to M-TAB.
     (setq tab-always-indent 'complete))
+
+  (use-package corfu-popupinfo
+    :after corfu
+    :hook (corfu-mode . corfu-popupinfo-mode)
+    :custom
+    (corfu-popupinfo-delay '(0.25 . 0.1))
+    (corfu-popupinfo-hide nil)
+    :config
+    (corfu-popupinfo-mode))
 #+END_SRC
 *** consult
 #+BEGIN_SRC emacs-lisp
