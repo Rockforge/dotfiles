@@ -69,7 +69,7 @@ The thingies that emacs should be doing from the start
 #+BEGIN_SRC emacs-lisp
   (cond
    ((find-font (font-spec :name "JetBrains Mono"))
-    (set-frame-font "JetBrains Mono-14"))
+    (set-frame-font "JetBrains Mono-15"))
    ;; ((find-font (font-spec :name "Fira Code"))
    ;;  (set-frame-font "Fira Code-14"))
    ;; ((find-font (font-spec :name "DejaVu Sans Mono"))
@@ -435,8 +435,7 @@ Packages that are useful for programming
     :config
     (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
     (add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
-    (add-hook 'web-mode-hook  'emmet-mode)
-    )
+    (add-hook 'web-mode-hook  'emmet-mode))
 #+END_SRC
 * Theming
 ** [[https://github.com/domtronn/all-the-icons.el][all-the-icons]]
