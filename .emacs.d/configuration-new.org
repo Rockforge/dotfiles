@@ -69,7 +69,7 @@ The thingies that emacs should be doing from the start
 #+BEGIN_SRC emacs-lisp
   (cond
    ((find-font (font-spec :name "JetBrains Mono"))
-    (set-frame-font "JetBrains Mono-15"))
+    (set-frame-font "JetBrains Mono-12"))
    ;; ((find-font (font-spec :name "Fira Code"))
    ;;  (set-frame-font "Fira Code-14"))
    ;; ((find-font (font-spec :name "DejaVu Sans Mono"))
@@ -329,6 +329,8 @@ Packages that are useful for programming
   (use-package eglot
     :straight t
     :config
+    (add-to-list 'eglot-server-programs
+                 '(php-mode . ("intelephense" "--stdio")))
     (add-hook 'python-mode-hook 'eglot-ensure))
 #+END_SRC
 ** [[https://github.com/DarthFennec/highlight-indent-guides][highlight-indent-guides]]
@@ -409,6 +411,11 @@ Packages that are useful for programming
   (use-package php-mode :straight t)
 #+END_SRC
 ** Web Development
+*** prettier-js
+#+BEGIN_SRC emacs-lisp
+  (use-package prettier-js
+    :straight t)
+#+END_SRC
 *** [[https://web-mode.org/][web-mode]]
 #+BEGIN_SRC emacs-lisp
   (use-package web-mode
@@ -425,7 +432,8 @@ Packages that are useful for programming
 
     (setq web-mode-engines-alist
           '(("php"    . "\\.phtml\\'")
-            ("blade"  . "\\.blade\\."))
+            ("blade"  . "\\.blade\\.")
+            ("blade"  . "\\.blade\\.php"))
           ))
 #+END_SRC
 *** [[https://github.com/smihica/emmet-mode][emmet-mode]]
@@ -463,7 +471,7 @@ Packages that are useful for programming
   (use-package modus-themes
     :straight t
     :config
-    (load-theme 'modus-vivendi :no-confirm))
+    (load-theme 'modus-operandi :no-confirm))
 #+END_SRC
 * Others
 ** emacs-dashboard
