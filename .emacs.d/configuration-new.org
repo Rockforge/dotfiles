@@ -410,6 +410,14 @@ Packages that are useful for programming
 #+BEGIN_SRC emacs-lisp
   (use-package php-mode :straight t)
 #+END_SRC
+*** javascript
+#+BEGIN_SRC emacs-lisp
+  (use-package js2-mode
+    :straight t
+    :hook
+    (js-mode . js2-minor-mode))
+#+END_SRC
+** Web Development
 ** Web Development
 *** prettier-js
 #+BEGIN_SRC emacs-lisp
@@ -469,10 +477,19 @@ Packages that are useful for programming
 ** [[https://github.com/protesilaos/modus-themes][modus-themes]]
 #+BEGIN_SRC emacs-lisp
   (use-package modus-themes
+    :disabled
     :straight t
     :config
     (load-theme 'modus-operandi :no-confirm))
 #+END_SRC
+** zenburn
+#+BEGIN_SRC emacs-lisp
+  (use-package zenburn-theme
+    :straight t
+    :config
+    (load-theme 'zenburn t))
+#+END_SRC
+
 * Others
 ** emacs-dashboard
 #+BEGIN_SRC emacs-lisp
