@@ -26,7 +26,7 @@ The thingies that emacs should be doing from the start
   ;;(set-fringe-mode 10)
   (set-fringe-style (quote (12 . 8)))
   ;; Show all the line numbers
-  (global-display-line-numbers-mode 1)
+  ;;(global-display-line-numbers-mode 1)
   ;; Show fill column
   (global-display-fill-column-indicator-mode 1)
 
@@ -322,6 +322,14 @@ The most useful package in this entire configuration
                         :weight 'bold
                         :height 3.0))
 #+END_SRC
+** [[https://github.com/abo-abo/avy][avy]]
+#+BEGIN_SRC emacs-lisp
+  (use-package avy
+    :straight t
+    :config
+    (global-set-key (kbd "M-g f") 'avy-goto-line)
+    (global-set-key (kbd "M-j") 'avy-goto-char-timer))
+#+END_SRC
 * Programming
 Packages that are useful for programming
 ** eglot
@@ -336,6 +344,7 @@ Packages that are useful for programming
 ** [[https://github.com/DarthFennec/highlight-indent-guides][highlight-indent-guides]]
 #+BEGIN_SRC emacs-lisp
   (use-package highlight-indent-guides
+    :disabled
     :straight t
     :hook
     (prog-mode . highlight-indent-guides-mode))
@@ -418,7 +427,6 @@ Packages that are useful for programming
     (js-mode . js2-minor-mode))
 #+END_SRC
 ** Web Development
-** Web Development
 *** prettier-js
 #+BEGIN_SRC emacs-lisp
   (use-package prettier-js
@@ -489,7 +497,6 @@ Packages that are useful for programming
     :config
     (load-theme 'zenburn t))
 #+END_SRC
-
 * Others
 ** emacs-dashboard
 #+BEGIN_SRC emacs-lisp
@@ -656,15 +663,15 @@ Some functions that I found really helpful
            ;; Other custom bindings
            ("M-y" . consult-yank-pop)                ;; orig. yank-pop
            ;; M-g bindings in `goto-map'
-           ("M-g e" . consult-compile-error)
-           ("M-g f" . consult-flymake)               ;; Alternative: consult-flycheck
-           ("M-g g" . consult-goto-line)             ;; orig. goto-line
-           ("M-g M-g" . consult-goto-line)           ;; orig. goto-line
-           ("M-g o" . consult-outline)               ;; Alternative: consult-org-heading
-           ("M-g m" . consult-mark)
-           ("M-g k" . consult-global-mark)
-           ("M-g i" . consult-imenu)
-           ("M-g I" . consult-imenu-multi)
+           ;; ("M-g e" . consult-compile-error)
+           ;; ("M-g f" . consult-flymake)               ;; Alternative: consult-flycheck
+           ;; ("M-g g" . consult-goto-line)             ;; orig. goto-line
+           ;; ("M-g M-g" . consult-goto-line)           ;; orig. goto-line
+           ;; ("M-g o" . consult-outline)               ;; Alternative: consult-org-heading
+           ;; ("M-g m" . consult-mark)
+           ;; ("M-g k" . consult-global-mark)
+           ;; ("M-g i" . consult-imenu)
+           ;; ("M-g I" . consult-imenu-multi)
            ;; M-s bindings in `search-map'
            ("M-s d" . consult-find)                  ;; Alternative: consult-fd
            ("M-s c" . consult-locate)

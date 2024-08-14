@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 ### Use our antigen
 source $HOME/antigen.zsh
 
@@ -17,8 +10,7 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 
 ### Themes
-#antigen theme romkatv/powerlevel10k
-antigen theme robbyrussell
+# antigen theme robbyrussell
 
 # Apply
 antigen apply
@@ -91,16 +83,20 @@ eval "$(direnv hook zsh)"
 eval "$(rbenv init - zsh)"
 #export PATH="/opt/homebrew/opt/protobuf@21/bin:$PATH"
 
+# has a conflict with gsts
 unalias gsts
+
+# Herd injected PHP 8.3 configuration.
+export HERD_PHP_83_INI_SCAN_DIR="/Users/chan-isentia/Library/Application Support/Herd/config/php/83/"
+
+# Herd injected PHP binary.
+export PATH="/Users/chan-isentia/Library/Application Support/Herd/bin/":$PATH
+
+eval "$(saml2aws --completion-script-zsh)"
+
+eval "$(starship init zsh)"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-
-# Herd injected PHP 8.3 configuration.
-export HERD_PHP_83_INI_SCAN_DIR="/Users/chan-isentia/Library/Application Support/Herd/config/php/83/"
-
-
-# Herd injected PHP binary.
-export PATH="/Users/chan-isentia/Library/Application Support/Herd/bin/":$PATH
