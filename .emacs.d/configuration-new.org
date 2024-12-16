@@ -69,7 +69,7 @@ The thingies that emacs should be doing from the start
 #+BEGIN_SRC emacs-lisp
   (cond
    ((find-font (font-spec :name "JetBrains Mono"))
-    (set-frame-font "JetBrains Mono-12"))
+    (set-frame-font "JetBrains Mono-14"))
    ;; ((find-font (font-spec :name "Fira Code"))
    ;;  (set-frame-font "Fira Code-14"))
    ;; ((find-font (font-spec :name "DejaVu Sans Mono"))
@@ -327,8 +327,8 @@ The most useful package in this entire configuration
   (use-package avy
     :straight t
     :config
-    (global-set-key (kbd "M-g f") 'avy-goto-line)
-    (global-set-key (kbd "M-j") 'avy-goto-char-timer))
+    (global-set-key (kbd "M-g l") 'avy-goto-line)
+    (global-set-key (kbd "M-g j") 'avy-goto-char-timer))
 #+END_SRC
 * Programming
 Packages that are useful for programming
